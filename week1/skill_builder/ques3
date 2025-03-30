@@ -1,0 +1,65 @@
+//DSA -Week1-Q3
+// You are using GCC
+#include <stdio.h> 
+#include <stdlib.h>
+struct node{
+    char val;
+    struct node *next;
+};
+
+int main(){
+    
+    struct node*head=NULL;
+    int n;
+    scanf("%d\n",&n);
+    struct node *temp=head;
+    for (int i=0;i<n;i++){
+        char val;
+        scanf("%c ",&val);
+        // printf("%c ",val);        
+        struct node newnode=(struct node)malloc(sizeof(struct node));
+        newnode->val=val;
+        newnode->next=NULL;
+        if(head==NULL){
+            head=newnode;
+            temp=head;
+        }
+        else{
+            while(temp->next!=NULL){
+                temp=temp->next;
+            }
+            temp->next=newnode;
+        }
+    }
+    
+    
+    int pos;
+    char newval;
+    scanf("\n%d",&pos);
+    scanf("\n%c",&newval);
+    if(pos>n){
+        printf("Invalid index\n");
+    }
+    else{
+    temp=head;
+    struct node newnode=(struct node)malloc(sizeof(struct node));
+    newnode->val=newval;
+    for (int i=0;i<pos;i++){
+        temp=temp->next;
+    }
+    newnode->next=temp->next;
+    temp->next=newnode;
+    }
+    
+    
+    
+    
+    
+    
+    temp=head;
+    printf("Updated list: ");
+    while(temp!=NULL){
+        printf("%c ",temp->val);
+        temp=temp->next;
+    }
+}
