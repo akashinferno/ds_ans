@@ -1,0 +1,56 @@
+//week 1 dsa-Q-5
+// You are using GCC
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    float gpa;
+    struct node* next;
+};
+
+int main(){
+    int n;
+    struct node * head=NULL;
+    scanf("%d\n",&n);
+    for(int i=0;i<n;i++){
+        float val;
+        scanf("%f\n",&val);
+        struct node newnode=(struct node)malloc(sizeof(struct node));
+        newnode->gpa=val;
+        if(head==NULL){
+            head=newnode;
+            newnode->next=NULL;
+        }
+        else{
+            newnode->next=head;
+            head=newnode;
+        }
+        
+    }
+    int pos;
+    scanf("%d",&pos);
+    struct node*temp=head;
+    struct node*prev=NULL;
+    if(pos==1){
+        head=temp->next;
+        free(temp);
+    }
+    else{
+    for(int i =0;i<pos-1;i++){
+        prev=temp;
+        temp=temp->next;
+    }
+    
+    prev->next=prev->next->next;
+    free(temp);
+    
+    
+    }
+    
+    struct node *temp1=head;
+    for(int i=0;i<n-1;i++){
+        printf("GPA: %.1f\n",temp1->gpa);
+        temp1=temp1->next;
+    }
+    
+    
+}
