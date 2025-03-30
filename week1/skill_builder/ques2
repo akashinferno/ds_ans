@@ -1,0 +1,57 @@
+// You are using GCC
+void insert(int val){
+    struct node* newnode=(struct node *)malloc(sizeof(struct node));
+    newnode->data=val;
+    newnode->next=NULL;
+    if(head==NULL){
+        head=newnode;
+        tail=newnode;
+        return;
+    }
+    
+    tail->next=newnode;
+    tail=newnode;
+    
+        
+    }//insert func
+    
+    void display_List(){
+        struct node*temp=head;
+        while(temp!=NULL){
+            printf("%d ",temp->data);
+            temp=temp->next;
+        }
+        
+    }//display func
+    
+    
+    void deleteNode(int pos){
+      
+        struct node*temp=head;
+        struct node*prev=NULL;
+        if(pos==1){
+            head=temp->next;
+            free(temp);
+            display_List();
+            return;
+        }
+        
+        for(int i=1; temp!=NULL && i<pos;i++){
+            prev=temp;
+            temp=temp->next;
+        }
+        if(temp==NULL){
+            printf("Invalid position. Deletion not possible.");
+            return;
+        }
+        
+        prev->next=prev->next->next;
+        free(temp);
+        display_List();
+        
+            
+        
+        
+        
+    
+    }//delete node
