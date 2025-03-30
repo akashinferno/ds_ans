@@ -1,0 +1,25 @@
+//DSA -Week1-Q4
+void insertAtFront(struct Node**head, int val){
+    struct Node* newnode=(struct Node *)malloc(sizeof(struct Node));
+    newnode->data=val;
+    if (*head==NULL){
+        newnode->next=NULL;
+        *head=newnode;
+        
+    }
+    else{
+        newnode->next=*head;
+        *head=newnode;
+    }
+    
+}
+
+
+
+void printList(struct Node* head){
+    struct Node *temp=head;
+    while(temp!=NULL){
+        printf("%d ",temp->data);
+        temp=temp->next;
+    }
+}
