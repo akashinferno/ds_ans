@@ -14,7 +14,7 @@ int main(){
     for(int i=0;i<n;i++){
         float val;
         scanf("%f\n",&val);
-        struct node newnode=(struct node)malloc(sizeof(struct node));
+        struct node *newnode=(struct node*)malloc(sizeof(struct node));
         newnode->gpa=val;
         if(head==NULL){
             head=newnode;
