@@ -17,7 +17,7 @@ int main(){
         char val;
         scanf("%c ",&val);
         // printf("%c ",val);        
-        struct node newnode=(struct node)malloc(sizeof(struct node));
+        struct node *newnode=(struct node*)malloc(sizeof(struct node));
         newnode->val=val;
         newnode->next=NULL;
         if(head==NULL){
@@ -42,7 +42,7 @@ int main(){
     }
     else{
     temp=head;
-    struct node newnode=(struct node)malloc(sizeof(struct node));
+    struct node *newnode=(struct node*)malloc(sizeof(struct node));
     newnode->val=newval;
     for (int i=0;i<pos;i++){
         temp=temp->next;
