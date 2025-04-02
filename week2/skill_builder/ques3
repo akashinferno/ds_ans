@@ -1,0 +1,23 @@
+void traverse() {
+    struct node*temp=start;
+    while(temp!=NULL){
+        printf("%d ",temp->info);
+        temp=temp->next;
+    }
+    printf("\n");    
+}
+
+void insertAtFront(int data) {
+    struct node* newnode=(struct node*)malloc(sizeof(struct node));
+    newnode->info =data;
+    newnode->prev=NULL;
+    if(start==NULL){
+        newnode->next=NULL;
+    }
+    else{
+        newnode->next=start;
+        start->prev=newnode;
+    }
+    start=newnode;
+    printf("Node Inserted\n");
+}
