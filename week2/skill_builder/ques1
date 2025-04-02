@@ -1,0 +1,46 @@
+// You are using GCC
+void insertAtEnd(struct Node** head, char item) {
+    struct Node *newnode=(struct Node*)malloc(sizeof(struct Node));
+    newnode->item=item;
+    newnode->next=NULL;
+    struct Node*temp=*head;
+    if(*head==NULL){
+        newnode->prev=NULL;
+        *head=newnode;
+        return;
+    }
+    
+    while(temp->next!=NULL){
+        temp=temp->next;
+        
+    }
+    newnode->prev=temp;
+    temp->next=newnode;
+    return;
+    
+   
+}
+void displayForward(struct Node* head) {
+    struct Node *temp=head;
+   
+    while(temp!=NULL){
+        printf("%c ",temp->item);
+        temp=temp->next;
+    }
+    printf("\n");
+}
+
+void displayBackward(struct Node* tail) {
+    struct Node *temp=tail;
+    
+    while(temp!=NULL){
+        printf("%c ",temp->item);
+        temp=temp->prev;
+    }
+    printf("\n");
+    
+}
+
+void freePlaylist(struct Node* head) {
+    //type your code here
+}
