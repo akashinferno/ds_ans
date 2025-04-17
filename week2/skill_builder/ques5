@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Node{
+    int id;
+    struct Node*next;
+    struct Node*prev;
+};
+
+int main(){
+    int n;
+    scanf("%d\n",&n);
+    struct Node *head=NULL;
+    struct Node *temp=head;
+    printf("Data entered in the list:\n");
+    for(int i =0;i<n;i++){
+        int val;
+        scanf("%d ",&val);
+        struct Node *newnode=(struct Node*)malloc(sizeof(struct Node));
+        newnode->id=val;
+        newnode->next=NULL;
+        if(head==NULL){
+            newnode->prev=NULL;
+            head=newnode;
+            temp=head;
+        }
+        else{
+            while(temp->next!=NULL){
+                temp=temp->next;
+        }
+        newnode->prev=temp;
+        temp->next=newnode;
+        
+        }
+        printf("node %d : %d\n",i+1,newnode->id);
+    }//for
+    
+    //deletion:
+    int pos;
+    scanf("\n%d",&pos);
+    struct Node *ptr=head;
+    if(pos>n){
+        printf("Invalid position. Try again.");
+    }
+    else if(pos==1){
+        head=head->next;
+        if(head!=NULL){
+            head->prev=NULL;
+        }
+        free(ptr);
+    }
+    else{
+        for(int i=0;i<pos-1;i++){
+            ptr=ptr->next;
+        }
+    ptr->prev->next=ptr->next;
+    if (ptr->next!=NULL){
+    ptr->next->prev=ptr->prev;
+    }
+    free(ptr);
+    printf("After deletion the new list:\n");
+    struct Node *ptr2=head;
+    for(int i =0;i<n-1;i++){
+        printf("node %d : %d\n",i+1,ptr2->id);
+        ptr2=ptr2->next;
+    }
+    }//else
+  
+}//main
