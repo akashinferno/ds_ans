@@ -1,0 +1,28 @@
+void push(char value) {
+    top++;
+    items[top]=value;
+    printf("Pushed: %c\n",value);
+    return;
+}
+
+void pop() {
+    if(isEmpty()){
+        printf("Stack is empty. Nothing to pop.\n");
+    }
+    else{
+        printf("Popped: %c\n",items[top]);
+        top--;
+    }
+}
+void display() {
+    if(isEmpty()){
+        printf("Stack is empty.\n");
+        return;
+    }
+
+    printf("Stack elements: ");
+    for(int i=top;i>=0;i--){
+        printf("%c ",items[i]);
+    }
+    printf("\n");  
+}
