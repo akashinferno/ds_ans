@@ -1,0 +1,34 @@
+void push(int value) {
+    struct Node *newnode=(struct Node *)malloc(sizeof(struct Node));
+    newnode->data=value;
+    newnode->next=top;
+    top=newnode;
+    printf("Pushed element: %d\n",value);
+    return;
+}
+
+void pop() {
+    if(top==NULL){
+        printf("Stack is empty.Cannot pop.\n");
+        return;
+    }
+    struct Node*temp=top;
+    top=top->next;
+    printf("Popped element: %d\n",temp->data);
+    free(temp);
+    return;
+}
+
+void displayStack() {
+    if(top==NULL){
+        printf("Stack is empty\n");
+        return;
+    }
+    printf("Stack elements (top to bottom):");
+    struct Node* temp=top;
+    while(temp!=NULL){
+        printf("%d ",temp->data);
+        temp=temp->next;
+    }
+    printf("\n");
+}
