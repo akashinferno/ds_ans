@@ -1,0 +1,48 @@
+#include <stdio.h>
+int main(){
+    int arr[100];
+    int top=-1;
+   while(1){
+       int n;
+       scanf("%d",&n);
+       switch (n){
+           case 1:
+           {
+            int val;
+            scanf(" %d",&val);
+            top++;
+            arr[top]=val;
+            printf("Book ID %d is pushed onto the stack\n",val);
+            break; 
+           }
+            
+            case 2:
+                if(top==-1){
+                    printf("Stack Underflow\n");
+                    break;
+                }
+                printf("Book ID %d is popped from the stack\n",arr[top]);
+                top=top-1;
+                break;
+            case 3:
+                if(top==-1){
+                    printf("Stack is empty\n");
+                    break;
+                }
+                printf("Book ID in the stack: ");
+                for(int i=top;i>=0;i--){
+                    printf("%d ",arr[i]);
+                }
+                printf("\n");
+                break;
+                
+            case 4:
+                printf("Exiting the program\n");
+                return 0;
+                
+            default:
+                printf("Invalid choice\n");
+       }
+   }
+return  0;
+}//main
