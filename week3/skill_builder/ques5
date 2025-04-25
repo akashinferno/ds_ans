@@ -1,0 +1,35 @@
+void push(char value) {
+    struct Node *newnode= (struct Node*)malloc(sizeof(struct Node));
+    newnode->data=value;
+    newnode->next=top;
+    top=newnode;
+    printf("Adding section: %c\n",value);
+    return;
+}
+
+void pop() {
+    if(top==NULL){
+        printf("Stack is empty.Cannot pop.\n");
+        return;
+    }
+    struct Node *temp=top;
+    top=top->next;
+    printf("Removing Section: %c\n",temp->data);
+    free(temp);
+    return;
+}
+
+void displayStack() {
+    if (top==NULL){
+        printf("Stack is empty\n");
+        return;
+    }
+    struct Node*temp=top;
+    printf("Enrolled Sections:");
+    while(temp!=NULL){
+        printf(" %c",temp->data);
+        temp=temp->next;
+    }
+    printf("\n");
+    
+}
